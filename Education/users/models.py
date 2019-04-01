@@ -23,8 +23,8 @@ class UserProfile(AbstractUser):
         verbose_name = '用户信息'
         vervbose_name_plural = verbose_name
 
-        def __str__(self):
-            return self.username
+    def __str__(self):
+        return self.username
 
 
 class EmaiVerifyRecord(models.Model):
