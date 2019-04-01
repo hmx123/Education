@@ -21,7 +21,7 @@ class UserProfile(AbstractUser):
 
     class Meta:
         verbose_name = '用户信息'
-        vervbose_name_plural = verbose_name
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.username
