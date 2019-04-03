@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'course',
     'organization',
     'operation',
+    'captcha',
 
 ]
 
@@ -68,7 +69,7 @@ ROOT_URLCONF = 'Education.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -140,3 +141,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 邮箱配置
+EMAIL_HOST = "smtp.163.com"  # SMTP服务器主机
+EMAIL_PORT = 25             # 端口
+EMAIL_HOST_USER = "17839192461@163.com"       # 邮箱地址
+EMAIL_HOST_PASSWORD = "forever1"    # 密码
+EMAIL_USE_TLS= True
+EMAIL_FROM = "17839192461@163.com"            # 邮箱地址
+
+# redis 作为缓存
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
